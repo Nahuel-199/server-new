@@ -11,7 +11,7 @@ const errorMiddleware = require("./src/middleware/error");
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "backend/src/config/config.env" });
+  require("dotenv").config({ path: "src/config/config.env" });
 }
 
 app.use(express.json());
