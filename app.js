@@ -42,9 +42,9 @@ process.on("uncaughtException", (err) => {
 connectDatabase();
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: process.env.CLOUDINARY_NAME || "nahue",
+  api_key: process.env.CLOUDINARY_API_KEY || "563213948782747",
+  api_secret: process.env.CLOUDINARY_API_SECRET || "Q_YOUSsfn9SOldRytAdgIS-S-zw",
 });
 
 const server = app.listen(process.env.PORT, () => {
