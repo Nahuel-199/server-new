@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const cloudinary = require("cloudinary");
 const connectDatabase = require("./src/config/database");
+const cors = require("cors");
 const path = require("path");
 
 const errorMiddleware = require("./src/middleware/error");
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 app.use(fileUpload());
 
 // Route Imports
@@ -42,9 +44,9 @@ process.on("uncaughtException", (err) => {
 connectDatabase();
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME || "nahue",
-  api_key: process.env.CLOUDINARY_API_KEY || "563213948782747",
-  api_secret: process.env.CLOUDINARY_API_SECRET || "Q_YOUSsfn9SOldRytAdgIS-S-zw",
+  cloud_name:"nahue",
+  api_key: "563213948782747",
+  api_secret:"Q_YOUSsfn9SOldRytAdgIS-S-zw",
 });
 
 const server = app.listen(process.env.PORT, () => {
