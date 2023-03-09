@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 
-const errorMiddleware = require("./middleware/error");
+const errorMiddleware = require("./src/middleware/error");
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "backend/config/config.env" });
+  require("dotenv").config({ path: "backend/src/config/config.env" });
 }
 
 app.use(express.json());
@@ -18,10 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
 // Route Imports
-const product = require("./routes/productRoute");
-const user = require("./routes/userRoute");
-const order = require("./routes/orderRoute");
-const payment = require("./routes/paymentRoute");
+const product = require("./src/routes/productRoute");
+const user = require("./src/routes/userRoute");
+const order = require("./src/routes/orderRoute");
+const payment = require("./src/routes/paymentRoute");
 
 app.use("/api", product);
 app.use("/api", user);
